@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body id="a" onload="digitalclock()">
+    <center>
+        <h1 id="roju"></h1>
+        <h2 id="tedi"></h2>
+        <h3 id="samayam"></h3>
+    </center>
+    <script>
+        function digitalclock()
+        {
+            var timezone=new Date();
+            var day=timezone.getDay();
+            switch(day)
+            {
+                case 0:document.getElementById('roju').innerHTML='SUNDAY'
+                document.getElementById('a').style.backgroundImage="url(./pisa towers.jfif)"
+                document.getElementById('a').style.backgroundSize="100% 750px"
+                break;
+                case 1:document.getElementById('roju').innerHTML='MONDAY'
+                document.getElementById('a').style.backgroundImage="url(./shiva.webp)"
+                document.getElementById('a').style.backgroundSize="100% 750px"
+                break;
+                case 2:document.getElementById('roju').innerHTML='TUESDAY'
+                document.getElementById('a').style.backgroundImage="url(./tajmahal.jpg)"
+                document.getElementById('a').style.backgroundSize="100% 750px"
+                break;
+                case 3:document.getElementById('roju').innerHTML='WEDNESDAY'
+                document.getElementById('a').style.backgroundImage="url(./godavari.jpg)"
+                document.getElementById('a').style.backgroundSize="100% 750px"
+                break;
+                case 4:document.getElementById('roju').innerHTML='THURSDAY'
+                document.getElementById('a').style.backgroundImage="url(./disney land.jpg)"
+                document.getElementById('a').style.backgroundSize="100% 750px"
+                break;
+                case 5:document.getElementById('roju').innerHTML='FRIDAY'
+                document.getElementById('a').style.backgroundImage="url(./eiffel-tower.webp)"
+                document.getElementById('a').style.backgroundSize="100% 750px"
+                break;
+                case 6:document.getElementById('roju').innerHTML='SATURDAY'
+                document.getElementById('a').style.backgroundImage="url(./saturday.avif)"
+                document.getElementById('a').style.backgroundSize="100% 790px"
+                break;
+            }
+            var dd=timezone.getDate()
+            var mon=timezone.getMonth()
+            switch (mon)
+            {
+                case 0:mon='JAN'
+                break;
+                case 1:mon='FEB'
+                break;
+                case 2:mon='MAR'
+                break;
+                case 3:mon='APR'
+                break;
+                case 4:mon='MAY'
+                break;
+                case 5:mon='JUNE'
+                break;
+                case 6:mon='JULY'
+                break;
+                case 7:mon='AUG'
+                break;
+                case 8:mon='SEP'
+                break;
+                case 9:mon='OCT'
+                break;
+                case 10:mon='NOV'
+                break;
+                case 11:mon='DEC'
+                break;
+            }
+            var yyyy=timezone.getFullYear()
+            var date=dd+"-"+mon+"-"+yyyy
+            document.getElementById('tedi').innerHTML=date
+
+            var mor=""
+            var hh=timezone.getHours()
+            if(hh<12)
+            {
+                mor="AM"
+            }
+            if(hh>=12)
+            {
+                hh-=12
+                mor="PM"
+            }
+            var mm=timezone.getMinutes()
+            var ss=timezone.getSeconds()
+            var time=hh+":"+mm+":"+ss+" "+mor
+            document.getElementById('samayam').innerHTML=time
+            var update=setTimeout(function(){digitalclock(),1000})
+        }
+    </script>
+</body>
+</html>
